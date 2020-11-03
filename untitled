@@ -1,0 +1,1 @@
+Was trying to using async storage to keep all the older data but async storage only accepts strings, so failed to handle no internet option.
