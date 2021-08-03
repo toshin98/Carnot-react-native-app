@@ -1,0 +1,32 @@
+format_version: 10
+pipelines:
+  abc-test:
+    group: My-Pipelines
+    label_template: ${COUNT}
+    lock_behavior: none
+    display_order: -1
+    materials:
+      git-daa4dd5:
+        git: https://github.com/toshin98/Carnot-react-native-app.git
+        shallow_clone: false
+        auto_update: true
+        branch: main
+    stages:
+    - abc-stage:
+        fetch_materials: true
+        keep_artifacts: false
+        clean_workspace: false
+        approval:
+          type: success
+          allow_only_on_success: false
+        jobs:
+          abc-job:
+            resources:
+            - windows
+            timeout: 0
+            tasks:
+            - exec:
+                arguments:
+                - hello
+                command: echo
+                run_if: passed
